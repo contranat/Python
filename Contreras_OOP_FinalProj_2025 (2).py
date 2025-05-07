@@ -2,6 +2,7 @@
 
 #libraries
 import re
+import doctest
 
 ##Assignment: Add to the constructor and methods of a parent class and child classes
 ##            which inherit the base class properties. NOTE: You are not allowed
@@ -112,24 +113,43 @@ class Seq:
         return self.sequence
 
     def print_record(self):
+        """
+        >>> s=Seq("  gATATAGGACctttaGGACCAC  ","my_gene","H.sapiens")
+        >>> s.print_record()
+        H.sapiens my_gene: GATATAGGACCTTTAGGACCAC
+        """
         print(self.species + " " + self.gene + ": " + self.sequence)
         
         
-    def make_kmers(self, k= 3):
         
-        for i in range(len(self.sequence) - k + 1):
-            kmers_splice = self.sequence[i: i+k]
             
-            #stop appending kmers that are not size 3
-            if len(kmers_splice) == k:
-                self.kmers.append(kmers_splice)
-                
+        
+    def make_kmers(self, k=3): 
+        """
+        >>> s = Seq("  gATATAGGACctttaGGACCAC  ", "my_gene", "H.sapiens")
+        >>> s.make_kmers(5)
+        ['GATAT', 'ATATA', 'TATAG', 'ATAGG', 'TAGGA', 'AGGAC', 'GGACC', 'GACCT', 'ACCTT', 'CCTTT', 'CTTTA', 'TTTAG', 'TTAGG', 'TAGGA', 'AGGAC', 'GGACC', 'GACCA', 'ACCAC']
+        """
+        
+        self.kmers = []
+        for i in range(len(self.sequence) - k + 1):
+            self.kmers.append(self.sequence[i:i+k])
         return self.kmers
-
+        
+    
     
     def fasta(self):
-        return f'>{self.species} {self.gene}\n {self.sequence}'        
+        """
+        >>> s = Seq("  gATATAGGACctttaGGACCAC  ", "my_gene", "H.sapiens")
+        >>> print(s.fasta())
+        >H.sapiens my_gene
+        GATATAGGACCTTTAGGACCAC
+        """
+        return f'>{self.species} {self.gene}\n{self.sequence}'
+
+
     
+           
     
 #DNA class
 
@@ -141,14 +161,35 @@ class DNA(Seq):
         self.sequence = re.sub('[^ATGCU]','N',self.sequence)
         
     def analysis(self):
-        gc=len(re.findall('G',self.sequence) + re.findall('C',self.sequence))
+        """
+        >>> d = DNA("  -tcaaaGCGGCGGATCTCCCaaatga", "my_dna", "D.terebrans", "AX5667")
+        >>> d.analysis()
+        13
+        """
+        gc = len(re.findall('G', self.sequence) + re.findall('C', self.sequence))
         return gc
+
+    
+        
     
     def print_info(self):
+        """
+        >>> d=DNA("  -tcaaaGCGGCGGATCTCCCaaatga","my_dna","D.terebrans","AX5667")
+        >>> d.print_info()
+        AX5667 D.terebrans my_dna: NTCAAAGCGGCGGATCTCCCAAATGA
+        
+        """
         print(str(self.gene_id) + " " + self.species + " " + self.gene + ": " + self.sequence)
+        
+        
 
 
     def reverse_complement(self):
+        """
+        >>> d=DNA("  -tcaaaGCGGCGGATCTCCCaaatga","my_dna","D.terebrans","AX5667")
+        >>> d.reverse_complement()
+        'TCATTTGGGAGATCCGCCGCTTTGAN'
+        """
         rev_sequence= ''
         
         for i in self.sequence:
@@ -165,10 +206,16 @@ class DNA(Seq):
                 
         reverse = rev_sequence[::-1]
         return reverse
-
+    
+        
 
 #returns all 6 frames of self.sequence. This include the 3 forward frames, and the 3 reverse complement frames
     def six_frames(self):
+        """
+        >>> d=DNA("  -tcaaaGCGGCGGATCTCCCaaatga","my_dna","D.terebrans","AX5667")
+        >>> d.six_frames()
+        ['NTCAAAGCGGCGGATCTCCCAAATGA', 'TCAAAGCGGCGGATCTCCCAAATGA', 'CAAAGCGGCGGATCTCCCAAATGA', 'TCATTTGGGAGATCCGCCGCTTTGAN', 'CATTTGGGAGATCCGCCGCTTTGAN', 'ATTTGGGAGATCCGCCGCTTTGAN']
+        """
         frames = []
         
         for i in range(3):
@@ -180,6 +227,8 @@ class DNA(Seq):
             
         return frames
         
+    
+        
 
 class RNA(DNA):
 
@@ -189,20 +238,36 @@ class RNA(DNA):
         self.codons = [] 
         
     def make_codons(self):
+        """
+        >>> r=RNA("  g?ATATAGGACctttaGGACCAC  ","my_rna","G.gallus","R5990999")
+        >>> r.make_codons()
+        ['GNA', 'UAU', 'AGG', 'ACC', 'UUU', 'AGG', 'ACC']
+        """
         
         for i in range(0, len(self.sequence), 3):
             codon = self.sequence[i:i+3]
             if len(codon) == 3:
                 self.codons.append(codon)
         return self.codons
+    
+        
 
 
     def translate(self):
+        """
+        >>> r=RNA("  g?ATATAGGACctttaGGACCAC  ","my_rna","G.gallus","R5990999")
+        >>> r.make_codons()
+        ['GNA', 'UAU', 'AGG', 'ACC', 'UUU', 'AGG', 'ACC']
+        >>> r.translate()
+        'XYRTFRT'
+        """
         protein = ''
         
         for codon in self.codons:
             protein += standard_code.get(codon, 'X')
         return protein
+    
+        
  
 
         
@@ -218,24 +283,46 @@ class Protein(Seq):
         return self.sequence
 
     def total_hydro(self):
+        """
+        >>> testp=Protein('VIKING','test','unknown',999)
+        >>> x=testp.total_hydro()
+        >>> print(x)
+        5.399999999999999
+        """
         total_hydro=0
         for i in self.sequence:
             v=kyte_doolittle[i]
             total_hydro+=v
         return total_hydro
+    
+        
+    
                  
 
     def mol_weight(self):
+        """
+        >>> testp=Protein('VIKING','test','unknown',999)
+        >>> m=testp.mol_weight()
+        >>> print(m)
+        732.8699999999999
+        """
+        
         total_weight = 0
         for i in self.sequence:
             weight = aa_mol_weights.get(i, 0)
             total_weight += weight
         return total_weight
-
-
     
 
-#x=DNA("G","tmp","m",000)
+    
+if __name__=="__main__":
+#import doctest
+    doctest.testmod(verbose=True)
+    
+    
+    
+
+
 
 
 
