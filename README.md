@@ -44,6 +44,12 @@ Directions -
 
 ## OOP Project Part 2
 
+Contains Biopython tutorial code found here: https://biopython.org/wiki/Seq
+This project demonstrates similar usage to the classes and functions created in project part 1. 
+It requires the following files: KRAS.fast, KRAS_genbank.gb, opuntia.dnd
 
+Example of tutorial:
+creates a phylogenetic tree using biopython module and opuntia.dnd
 
+<img width="814" alt="Screenshot 2025-05-14 at 12 22 20 AM" src="https://github.com/user-attachments/assets/549cc09c-7b64-4ba5-a745-d179310a2ede" />
 
