@@ -6,6 +6,10 @@ This repository holds analysis done in BIOL668 such as: Python (Object Orient Pr
 * Contreras_OOP_FinalProj_2025.py
 * Contreras_PythonProject_2025.ipynb (jupyter notebook)
 * Contreras_04A_Biopython_Tutorial_LSH-1.ipynb
+* Contreras_PythonRefresher (1).py
+* make_person (1).py
+* person (1).py
+* wizard_class_HW (1).py
 
 ## Files Needed:
 * KRAS.fasta
@@ -52,4 +56,8 @@ Example of tutorial:
 creates a phylogenetic tree using biopython module and opuntia.dnd
 
 <img width="814" alt="Screenshot 2025-05-14 at 12 22 20 AM" src="https://github.com/user-attachments/assets/549cc09c-7b64-4ba5-a745-d179310a2ede" />
+
+## Python Refresher
+
+## OOP Wizard Game
 
