@@ -39,6 +39,7 @@ Calculates total hydrophobicity and molecular weight.
 
 
 Example usage:
+
 Directions -
 1. Run Contreras_OOP_FinalProj_2025.py
 2. open ensure this line of code is ran before running the rest of the code chunks in the jupyternotebook: exec(open("Contreras_OOP_FinalProj_2025.py").read())
