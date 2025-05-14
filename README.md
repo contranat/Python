@@ -5,9 +5,15 @@ This repository holds analysis done in BIOL668 such as: Python (Object Orient Pr
 ## Features:
 * Contreras_OOP_FinalProj_2025.py
 * Contreras_PythonProject_2025.ipynb (jupyter notebook)
+* Contreras_04A_Biopython_Tutorial_LSH-1.ipynb
+
+## Files Needed:
+* KRAS.fasta
+* KRAS_genbank.gb
+* opuntia.dnd
 
 
-# OOP Project:
+## OOP Project Part 1
 Builds on from a constructuro and adds methods of a parent class. 
 Classes:
 
@@ -35,5 +41,9 @@ Directions -
 
    
 <img width="1205" alt="Screenshot 2025-05-13 at 11 04 23 PM" src="https://github.com/user-attachments/assets/b126fad0-2a5e-4297-838f-76272e67adac" />
+
+## OOP Project Part 2
+
+
 
 
