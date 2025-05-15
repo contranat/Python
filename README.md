@@ -90,6 +90,7 @@ Contreras_person.py -
 Creates a Person class that holds first and last name. Employee class inherits Person class and adds date of birth and ssn information. 
 
 Example usage:
+
 <img width="494" alt="Screenshot 2025-05-14 at 7 39 48 PM" src="https://github.com/user-attachments/assets/555126c4-c583-4676-89e9-4e117046d873" />
 
 
@@ -97,12 +98,14 @@ Contreras_wizard_class_HW.py -
 Creates a Character class that modifies the method Attack and subtracts from a second character. It also contains a Wizard class that inherits Character class's methods to adds heal and fireball methods. 
 
 Example usage:
+
 <img width="501" alt="Screenshot 2025-05-14 at 7 39 29 PM" src="https://github.com/user-attachments/assets/8499df0e-76ef-49d2-a680-bba51e624144" />
 
 Contreras_make_person.py - 
 Imports "Contreras_person.py" and ensures that file is working properly
 
 Example usage:
+
 <img width="249" alt="Screenshot 2025-05-14 at 7 41 42 PM" src="https://github.com/user-attachments/assets/df4764d4-8582-444d-9fe8-da37aa72e8aa" />
 
 
@@ -110,6 +113,7 @@ Example usage:
 Applies doctest function to Contreras_OOP_FinalProj_2025 (2).py to ensure that all code runs as expected. 
 
 Example usage:
+
 <img width="411" alt="Screenshot 2025-05-14 at 7 47 30 PM" src="https://github.com/user-attachments/assets/8c7b44d6-c1e7-4dbd-868a-f7eec1a4a35f" />
 
 
