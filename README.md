@@ -3,14 +3,14 @@ This repository holds analysis done in BIOL668 such as: Python (Object Orient Pr
 
 
 ## Features:
-* Contreras_OOP_FinalProj_2025.py
+* Contreras_OOP_FinalProj_2025 (2).py
 * Contreras_PythonProject_2025.ipynb (jupyter notebook)
 * Contreras_04A_Biopython_Tutorial_LSH-1.ipynb
 * Contreras_PythonRefresher (1).py
 * Contreras_make_person.py
 * Contreras_person.py
 * Contreras_wizard_class_HW.py
-* Contreras_OOP_FinalProj_2025 (2).py
+
 
 ## Files Needed:
 * KRAS.fasta
